@@ -19,7 +19,7 @@ RUN --mount=type=cache,id=apt-build,target=/var/cache/apt \
         build-essential python3 python3-venv python3-dev wget
 
 # Install extra Debian build packages added from ./configure
-COPY build_packages /build_packages
+# COPY build_packages /build_packages
 RUN --mount=type=cache,id=apt-build,target=/var/cache/apt \
     if [ -s /build_packages ]; then \
         cat /build_packages | xargs apt-get install --yes --no-install-recommends; \
